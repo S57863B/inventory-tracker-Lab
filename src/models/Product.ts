@@ -1,4 +1,4 @@
-class Product {
+export class Product {
     constructor(
         public sku: string,
         public name: string,
@@ -13,5 +13,3 @@ class Product {
         return this.price;
     }
 }
-
-export = Product;
