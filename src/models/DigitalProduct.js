@@ -14,5 +14,8 @@ export class DigitalProduct extends Product {
     displayDetails() {
         return `${super.displayDetails()} (Size: ${this.formattedFileSize})`;
     }
+    applyDiscount(percent) {
+        this.price = this.price - (this.price * (percent / 100));
+    }
 }
 //# sourceMappingURL=DigitalProduct.js.map

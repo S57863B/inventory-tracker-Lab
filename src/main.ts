@@ -2,11 +2,15 @@ import { PhysicalProduct } from './models/PhysicalProduct.js';
 import { DigitalProduct } from './models/DigitalProduct.js';
 import { calculateTax } from './utils/taxCalculator.js';
 import { Product } from './models/Product.js';
+import { sortByPrice } from './utils/sorter.js';
 
 const laptop1 = new PhysicalProduct('SKU123', 'Gaming Laptop', 1000, 2.5);
-const laptop2 = new DigitalProduct('SKU456', 'Office laptop', 20, 15);
+const ebook = new DigitalProduct('SKU456', 'ebook', 20, 15);
 
-const inventory: Product[] = [laptop1, laptop2];
+let inventory: Product[] = [laptop1, ebook];
+
+ebook.applyDiscount(20);
+inventory = sortByPrice(inventory);
 
 console.log('-- INVENTORY REPORT --');
 for (const item of inventory) {

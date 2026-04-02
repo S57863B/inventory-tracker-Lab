@@ -1,6 +1,7 @@
 import { Product } from './Product.js';
+import type { DiscountableProduct } from './DiscountableProduct.js';
 
-export class DigitalProduct extends Product {
+export class DigitalProduct extends Product implements DiscountableProduct {
   constructor(
     sku: string,
     name: string,
@@ -20,5 +21,9 @@ export class DigitalProduct extends Product {
 
   override displayDetails(): string {
     return `${super.displayDetails()} (Size: ${this.formattedFileSize})`;
+  }
+
+  applyDiscount(percent: number): void {
+    this.price = this.price - (this.price * (percent / 100));
   }
 }

@@ -1,0 +1,5 @@
+import { Product } from '../models/Product.js';
+
+export function sortByPrice(products: Product[]): Product[] {
+  return [...products].sort((a, b) => a.price - b.price);
+}
